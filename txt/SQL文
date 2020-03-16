@@ -1,0 +1,31 @@
+-- ユーザー
+drop table if exists users cascade;
+
+create table users (
+id serial primary key
+ , name varchar(100) not null
+ , email varchar(100) not null unique
+ , password text not null
+ , icon text
+) ;
+
+-- 記事
+drop table if exists articles cascade;
+
+create table articles (
+id serial primary key
+, user_id integer not null
+, shop_name varchar(100) not null
+, ramen_name text not null
+, price integer
+, other1 text
+, other2 text
+, image text not null
+, zipcode varchar(7)
+, address varchar(200)
+, start_time text
+, end_time text
+, rest_time text
+, star integer
+, holidays text
+) ;

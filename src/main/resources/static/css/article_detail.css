@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+img.photo {
+	display: inline-block; /* ここがポイント */
+    height: 500px;
+    margin-right: 15px;
+    margin-bottom: 17px;
+    width:100%;
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link th:href="@{/css/article_insert.css}" rel="stylesheet">
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+<script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
+</head>
+<body>
+
+	<div class="row">
+		<div
+			class="table-responsive col-lg-offset-1 col-lg-10 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
+
+			<form th:action="@{/article/insert}" method="post"
+				th:object="${articleForm}" enctype="multipart/form-data">
+				<fieldset>
+					<legend
+						style="font-family: 'ヒラギノ角ゴ StdN', 'Hiragino Kaku Gothic StdN'; font-size: 30px">ラーメン登録</legend>
+					<table class="table table-striped">
+						<tr>
+							<th nowrap><label for="name"><span
+									class="label label-danger">必須</span>店名🏠</label></th>
+							<td>
+								<!-- 							<label th:if="${#fields.hasErrors('shopName')}" th:errors="*{shopName}" style="color: red">店名を入力してください</label>  -->
+								<input type="text" placeholder="大ちゃんらーめん" name="shopName"
+								class="text" autofocus required th:field=*{shopName}>
+							</td>
+						</tr>
+
+						<tr>
+							<th nowrap><label for="name"><span
+									class="label label-danger">必須</span>ラーメン🍜</label></th>
+							<td>
+								<!-- 							<label th:if="${#fields.hasErrors('ramenName')}" th:errors="*{ramenName}" style="color: red">ラーメン名を入力してください</label> -->
+								<input type="text" placeholder="塩バターコーンラーメン" name="ramenName"
+								class="text" autofocus required th:field="*{ramenName}">
+							</td>
+						</tr>
+
+						<tr>
+							<th nowrap><label for="name"><span
+									class="label label-danger">必須</span>価格💰</label></th>
+							<td><input type="number" placeholder="850" name="price"
+								class="text" autofocus required th:field="*{price}">円</td>
+						</tr>
+
+						<tr>
+							<th nowrap><label><span class="label label-success">任意</span>その他メニュー🍚</label></th>
+							<td><input type="text" placeholder="ライス" name="other1"
+								class="text" autofocus th:field="*{other1}"></td>
+						</tr>
+
+						<tr>
+							<th nowrap><label><span class="label label-success">任意</span>その他メニュー🍚</label></th>
+							<td><input type="text" placeholder="ギョーザ" name="other2"
+								class="text" autofocus th:field="*{other2}"><br></td>
+						</tr>
+
+						<tr>
+							<th nowrap><label for="name"><span
+									class="label label-danger">必須</span>画像📸</label></th>
+							<td><label th:if="${#fields.hasErrors('image')}"
+								th:errors="*{image}" style="color: red"></label><input required
+								type="file" name="image" th:field="*{image}" accept=".jpg,.png"></td>
+						</tr>
+
+						<tr>
+							<th nowrap><label><span class="label label-success">任意</span>郵便番号📮</label></th>
+							<td><input type="text" placeholder="1234567" name="zipcode"
+								onKeyUp="AjaxZip3.zip2addr(this,'','address','address');"
+								class="text" autofocus th:field="*{zipcode}"></td>
+						</tr>
+
+						<tr>
+							<th nowrap><label><span class="label label-success">任意</span>住所🏠</label></th>
+							<td><input type="text" placeholder="東京都品川区…" name="address"
+								class="text" autofocus
+								th:field="*{address}"></td>
+						</tr>
+
+						<tr>
+							<th nowrap><label><span class="label label-success">任意</span>開店時間⏳</label></th>
+							<td><input type="text" placeholder="11時" name="startTime"
+								class="text" autofocus th:field="*{startTime}"></td>
+						</tr>
+
+						<tr>
+							<th nowrap><label><span class="label label-success">任意</span>休憩時間☕</label></th>
+							<td><input type="text" placeholder="15時〜18時" name="restTime"
+								class="text" autofocus th:field="*{restTime}"></td>
+						</tr>
+
+						<tr>
+							<th nowrap><label><span class="label label-success">任意</span>閉店時間⌛</label></th>
+							<td>️<input type="text" placeholder="21時" name="endTime"
+								class="text" autofocus th:field="*{endTime}">
+							</td>
+						</tr>
+
+						<tr>
+							<th nowrap><label><span class="label label-success">任意</span>定休日⛱</label></th>
+							<td><input type="text" placeholder="月曜日、水曜日" name="holidays"
+								class="text" autofocus th:field="*{holidays}"></td>
+						</tr>
+
+						<tr>
+							<th nowrap><label><span class="label label-success">任意</span>評価⭐</label></th>
+							<td class="evaluation"><input id="star1" type="radio"
+								name="star" value="5" /> <label for="star1">★</label> <input
+								id="star2" type="radio" name="star" value="4" /> <label
+								for="star2">★</label> <input id="star3" type="radio" name="star"
+								value="3" /> <label for="star3">★</label> <input id="star4"
+								type="radio" name="star" value="2" /> <label for="star4">★</label>
+								<input id="star5" type="radio" name="star" value="1" /> <label
+								for="star5">★</label></td>
+						</tr>
+					</table>
+					<button class="btn btn-primary">登録</button>
+				</fieldset>
+			</form>
+
+		</div>
+	</div>
+</body>
+</html>

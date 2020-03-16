@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+<link th:href="@{/css/user_detail.css}" rel="stylesheet">
+</head>
+<body>
+
+<div class="box">
+	<div class="container">
+		<div class="row vertical-offset-100">
+			<div class="col-md-4 col-md-offset-4">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">ユーザー情報</h3>
+					</div>
+					<div class="panel-body">
+						<fieldset>
+								<div class="form-group" th:if="${icon}">
+									<img th:src="${user.icon}" style="border-radius: 30%;width:  100px; height: 100px;" onerror="this.src='/img/user.jpg'"/>
+								</div>
+								<div class="form-group">
+									<div th:text="${user.name}"></div>
+								</div>
+								<div class="form-group">
+									<div th:text="${user.email}"></div>
+								</div>
+							<form th:action="@{/user/toUserRamenList}" method="post">
+								<input class="btn-block btn btn-primary" type="submit" value="ラーメン記録">
+							</form><br>
+							<form th:action="@{/user/toUpdateUserDetail}" method="post">
+								<input type="hidden" name="id" th:value="${user.id}">
+								<input class="btn btn-success btn-block" type="submit" value="編集">
+							</form>
+						</fieldset>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

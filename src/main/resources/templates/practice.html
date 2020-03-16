@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h3>ラーメン検索</h3>
+<p>
+
+<select id="kind">
+<option value="ラーメン">ラーメン</option>
+<option value="つけ麺">つけ麺</option>
+</select>
+
+<!-- <input type="text" id="search"> -->
+<button id="btn">検索</button>
+</p>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" th:src="@{/js/practice.js}"></script>
+</body>
+</html>

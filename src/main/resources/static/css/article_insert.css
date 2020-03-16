@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+/* 評価 */
+.evaluation{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+.evaluation input[type='radio']{
+  display: none;
+}
+.evaluation label{
+  position: relative;
+  padding: 0px 10px 0;
+  color: gray;
+  cursor: pointer;
+  font-size: 20px;
+}
+.evaluation label .text{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  text-align: center;
+  font-size: 12px;
+  color: gray;
+}
+.evaluation label:hover,
+.evaluation label:hover ~ label,
+.evaluation input[type='radio']:checked ~ label{
+  color: #ffcc00;
+}
+
+/* input */
+.text{
+    font-size: 16px;
+    width: 80%;
+    outline: none;
+    padding-bottom: 8px;
+    box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+    border: 2px solid #aaa;
+ 	border-radius: 4px;
+}

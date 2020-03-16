@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/ramen
+    username: postgres
+    password: postgres
+  servlet:
+    multipart:
+      max-file-size: 30MB
+      max-request-size: 30MB

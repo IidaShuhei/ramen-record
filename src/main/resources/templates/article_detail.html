@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+<link th:href="@{/css/article_detail.css}" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" th:src="@{/js/article_detail.js}"></script>
+</head>
+<body>
+<form th:action="@{/article/toUpdate}" method="post">
+	<div class="row">
+		<div
+			class="table-responsive col-lg-offset-1 col-lg-10 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
+			<fieldset>
+				<legend class="text-center"
+					style="font-family: 'ヒラギノ角ゴ StdN', 'Hiragino Kaku Gothic StdN'; font-size: 30px"
+					th:text="${article.shopName}"></legend>
+				<table class="table table-striped">
+					<tr>
+						<td><img th:src="${article.image}"
+							class="img-thumbnail img-fluidr photo"></td>
+					</tr>
+					<tr>
+						<th nowrap><label>ラーメン🍜 :</label></th>
+						<td><span th:text="${article.ramenName}"></span></td>
+					</tr>
+
+					<tr>
+						<th nowrap><label>価格💰 :</label></th>
+						<td><span th:text="${article.price}"></span><span>円</span></td>
+					</tr>
+
+					<tr>
+						<th nowrap><label>その他メニュー🍚 :</label></th>
+						<td><span th:text="${article.other1}"></span></td>
+					</tr>
+
+					<tr>
+						<th nowrap><label>その他メニュー🍚 :</label></th>
+						<td><span th:text="${article.other2}"></span></td>
+					</tr>
+
+					<tr>
+						<th nowrap><label>郵便番号📮 :</label></th>
+						<td><span th:text="${article.zipcode}"></span></td>
+					</tr>
+
+					<tr>
+						<th nowrap><label>住所🏠 :</label></th>
+						<td><span th:text="${article.address}"></span></td>
+					</tr>
+
+					<tr>
+						<th nowrap><label>開店時間⏳ :</label></th>
+						<td><span th:text="${article.startTime}"></span></td>
+					</tr>
+
+					<tr>
+						<th nowrap><label>休憩時間☕ :</label></th>
+						<td><span th:text="${article.restTime}"></span></td>
+					</tr>
+
+					<tr>
+						<th nowrap><label>閉店時間⌛ :</label></th>
+						<td><span th:text="${article.endTime}"></span></td>
+					</tr>
+
+					<tr>
+						<th nowrap><label>定休日⛱ :</label></th>
+						<td><span th:text="${article.holidays}"></span></td>
+					</tr>
+
+					<tr>
+						<th nowrap><label>評価⭐ :</label></th>
+						<td><span th:text="${article.star}"></span></td>
+					</tr>
+
+					<tr>
+						<td>
+							<input type="hidden" name="id" th:value="${article.id}">
+							<input id="articleUserId" type="hidden" name="userId" th:value="${article.userId}">
+							<input id="userId" type="hidden" th:value="${user.id}">
+							<button class="btn btn-primary" id="edit">編集</button>
+						</td>
+					</tr>
+				</table>
+			</fieldset>
+		</div>
+	</div>
+</form>
+</body>
+</html>
